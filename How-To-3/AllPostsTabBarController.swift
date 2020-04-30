@@ -9,9 +9,19 @@
 import UIKit
 
 class AllPostsTabBarController: UITabBarController {
+
+    // MARK: - Properties
+
+    // MARK: - Outlets
+
+    // MARK: - Protocol Conforming
+
+    // MARK: - Custom Methods
+
+    // MARK: - Enums
     
 
-    let backendController = BackendController()
+    var backendController = BackendController.shared
     
     override func viewDidLoad() {
            super.viewDidLoad()

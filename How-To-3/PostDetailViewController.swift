@@ -9,6 +9,16 @@
 import UIKit
 import CoreData
 class PostDetailViewController: UIViewController {
+
+    // MARK: - Properties
+
+    // MARK: - Outlets
+
+    // MARK: - Protocol Conforming
+
+    // MARK: - Custom Methods
+
+    // MARK: - Enums
     
   private var wasEdited = false
     
@@ -20,7 +30,7 @@ class PostDetailViewController: UIViewController {
     
     var postRepresentation: PostRepresentation?
     var post: Post?
-    var backendController: BackendController?
+    var backendController = BackendController.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

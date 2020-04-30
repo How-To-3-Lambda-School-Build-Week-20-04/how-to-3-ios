@@ -9,6 +9,16 @@
 import UIKit
 import CoreData
 class CreatePostViewController: UIViewController, PostPresenter {
+
+    // MARK: - Properties
+
+    // MARK: - Outlets
+
+    // MARK: - Protocol Conforming
+
+    // MARK: - Custom Methods
+
+    // MARK: - Enums
     
     @IBOutlet private weak var postDescription: UITextView!
     @IBOutlet private weak var titleTextField: UITextField!
@@ -21,7 +31,7 @@ class CreatePostViewController: UIViewController, PostPresenter {
         }
     }
     
-    var backendController: BackendController?
+    var backendController = BackendController.shared
     var mainPostTableViewController: MainPostTableViewController?
     
     override func viewDidLoad() {
