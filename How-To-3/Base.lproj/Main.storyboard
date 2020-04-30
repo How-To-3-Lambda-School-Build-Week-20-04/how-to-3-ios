@@ -485,7 +485,7 @@
         <!--Make a Guide-->
         <scene sceneID="Gug-q5-R3k">
             <objects>
-                <viewController id="FRI-JC-Akd" sceneMemberID="viewController">
+                <viewController id="FRI-JC-Akd" customClass="CreateGuideViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2c6-sA-VLF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,6 +494,9 @@
                                 <rect key="frame" x="40" y="240" width="334" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="guideTitleLabel:" destination="3cH-7g-LRj" eventType="editingDidEnd" id="NuG-BC-4mI"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title your guide:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjF-uE-rIJ">
                                 <rect key="frame" x="40" y="191" width="181" height="29"/>
@@ -520,8 +523,15 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-ng-gWQ">
                                 <rect key="frame" x="147" y="636" width="120" height="41"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Create Post"/>
+                                <state key="normal" title="Create Post">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="createPostButton:" destination="3cH-7g-LRj" eventType="touchUpInside" id="r6I-o3-7G4"/>
+                                    <action selector="createPostTapped:" destination="FRI-JC-Akd" eventType="touchUpInside" id="kdb-X8-Kix"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -544,10 +554,20 @@
                         <viewLayoutGuide key="safeArea" id="Zc7-K0-uHk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Make a Guide" largeTitleDisplayMode="always" id="eTT-lz-n8m">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nOF-zf-ejT"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nOF-zf-ejT">
+                            <connections>
+                                <action selector="cancelTapped:" destination="FRI-JC-Akd" id="wZh-Os-7Jn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="createPostButton" destination="TcM-ng-gWQ" id="tVj-s3-9TF"/>
+                        <outlet property="guideDescription" destination="AUF-96-WGK" id="T6T-WL-3Nk"/>
+                        <outlet property="guideTitleTextField" destination="SmG-Nq-Sof" id="ot8-dE-JX4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8i-qI-Av3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3cH-7g-LRj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3629" y="90"/>
         </scene>
