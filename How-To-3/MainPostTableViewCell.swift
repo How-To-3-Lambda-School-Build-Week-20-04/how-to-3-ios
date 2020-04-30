@@ -25,7 +25,6 @@ class MainPostTableViewCell: UITableViewCell {
     @IBOutlet private weak var timeStampLabel: UILabel!
     
   
-    
     private func updateViews() {
         guard let post = post else { return }
         postTitleLabel.text = post.title

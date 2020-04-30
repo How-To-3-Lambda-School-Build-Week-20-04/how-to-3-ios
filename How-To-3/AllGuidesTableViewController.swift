@@ -18,7 +18,7 @@ class AllGuidesTableViewController: UITableViewController {
              let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
              let context = CoreDataStack.shared.mainContext
              context.reset()
-             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "likes", ascending: true)]
              let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
              frc.delegate = self
              try? frc.performFetch()
@@ -69,9 +69,7 @@ class AllGuidesTableViewController: UITableViewController {
         guard  let cell = tableView.dequeueReusableCell(withIdentifier: "AllGuidesCell", for: indexPath) as? MainPostTableViewCell else {
             return UITableViewCell() }
         cell.post = fetchedResultsController.object(at: indexPath)
-        cell.backendController = backendController
-      
-
+    
         return cell
     }
     

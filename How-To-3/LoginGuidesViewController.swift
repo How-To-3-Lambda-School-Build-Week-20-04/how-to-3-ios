@@ -86,13 +86,13 @@ class LoginGuidesViewController: UIViewController {
                   let action: () -> Void
                 
                 if signIn {
+                      self.performSegue(withIdentifier: "LoggedInShowSegue", sender: self)
                     self.showAlertMessage(title: "Success", message: "Succesfully logged in", actiontitle: "Ok")
-                    action = { self.dismiss(animated: true) }
                 } else {
                     action = { self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok") }
                     
             }
-                action()
+//                action()
         }
     }
     }
