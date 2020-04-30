@@ -43,6 +43,13 @@ class LoginGuidesViewController: UIViewController {
             else { return }
         backendController.signUp(username: username, password: password, email: email) { signUpResult, response, error  in
             
+            if signUpResult {
+                DispatchQueue.main.async {
+                    self.showAlertMessage(title: "Success", message: "You Signed Up Successfully", actiontitle: "Ok")
+                }
+                return
+            }
+
             if let error = error {
                 //                Alert
                 self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
@@ -53,12 +60,6 @@ class LoginGuidesViewController: UIViewController {
                 return
             }
             
-            if signUpResult {
-                DispatchQueue.main.async {
-                    self.showAlertMessage(title: "Success", message: "You Signed Up Successfully", actiontitle: "Ok")
-                }
-                return
-            }
             
         }
         if self.logInLabel.isSelected == false {

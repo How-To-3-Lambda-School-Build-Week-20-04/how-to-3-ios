@@ -16,10 +16,9 @@ class CreateGuideViewController: UIViewController {
     
 // MARK: - IBOutlets
     
-    @IBOutlet weak var createPostButton: UIButton!
-    
-    @IBOutlet weak var guideTitleTextField: UITextField!
-    @IBOutlet weak var guideDescription: UITextView!
+    @IBOutlet private weak var createPostButton: UIButton!
+    @IBOutlet private weak var guideTitleTextField: UITextField!
+    @IBOutlet private  weak var guideDescription: UITextView!
     
 // MARK: - Methods
     
@@ -39,7 +38,7 @@ class CreateGuideViewController: UIViewController {
                  let bodyText = guideDescription.text, !bodyText.isEmpty else {
                      return
              }
-             
+        
              backendController.createPost(title: title, post: bodyText) { error in
                  if let error = error {
                      NSLog("Error posting posts: \(error)")
@@ -53,6 +52,7 @@ class CreateGuideViewController: UIViewController {
                  }
                  
              }
+    
              do {
                  try CoreDataStack.shared.mainContext.save()
              } catch {

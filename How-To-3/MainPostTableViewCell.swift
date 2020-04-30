@@ -26,7 +26,6 @@ class MainPostTableViewCell: UITableViewCell {
     
   
     
-    
     private func updateViews() {
         guard let post = post else { return }
         postTitleLabel.text = post.title
