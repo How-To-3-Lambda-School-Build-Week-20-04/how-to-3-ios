@@ -29,7 +29,7 @@ class CreateGuideViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
-      navigationController?.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func createPostTapped(_ sender: UIButton) {
@@ -47,7 +47,8 @@ class CreateGuideViewController: UIViewController {
                  
                  DispatchQueue.main.async {
                      //Alert
-                     self.showAlertMessage(title: "Post Created!", message: "Go to the Home", actiontitle: "Ok")
+self.showAlertMessage(title: "Post Created!", message: "Go to the Home", actiontitle: "Ok")
+                     
                   
                  }
                  

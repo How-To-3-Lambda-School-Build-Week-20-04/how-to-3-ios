@@ -388,7 +388,7 @@
         <!--My Guides-->
         <scene sceneID="SFl-4A-tB8">
             <objects>
-                <tableViewController id="aX2-Pl-yZO" sceneMemberID="viewController">
+                <tableViewController id="aX2-Pl-yZO" customClass="UserGuidesTableViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y1F-Ub-A0J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -573,7 +573,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="291-3i-keH"/>
+        <segue reference="T0o-2M-ZYF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barmenu" width="24" height="24"/>

@@ -10,6 +10,7 @@
 		3F291E1B245B784B00D52923 /* AllGuidesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F291E1A245B784B00D52923 /* AllGuidesTableViewController.swift */; };
 		3F291E1D245B801A00D52923 /* LoginGuidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F291E1C245B801A00D52923 /* LoginGuidesViewController.swift */; };
 		3F291E1F245B860700D52923 /* CreateGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F291E1E245B860700D52923 /* CreateGuideViewController.swift */; };
+		3F291E21245B98EE00D52923 /* UserGuidesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F291E20245B98EE00D52923 /* UserGuidesTableViewController.swift */; };
 		3F2E42FE245A662200DE88EC /* AllPostsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E42FD245A662200DE88EC /* AllPostsTabBarController.swift */; };
 		3F2E4300245A679D00DE88EC /* TabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E42FF245A679D00DE88EC /* TabBarProtocol.swift */; };
 		3F3A00402458D27A0019E2ED /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3A003F2458D27A0019E2ED /* MyPostTableViewCell.swift */; };
@@ -65,6 +66,7 @@
 		3F291E1A245B784B00D52923 /* AllGuidesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGuidesTableViewController.swift; sourceTree = "<group>"; };
 		3F291E1C245B801A00D52923 /* LoginGuidesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGuidesViewController.swift; sourceTree = "<group>"; };
 		3F291E1E245B860700D52923 /* CreateGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGuideViewController.swift; sourceTree = "<group>"; };
+		3F291E20245B98EE00D52923 /* UserGuidesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuidesTableViewController.swift; sourceTree = "<group>"; };
 		3F2E42FD245A662200DE88EC /* AllPostsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPostsTabBarController.swift; sourceTree = "<group>"; };
 		3F2E42FF245A679D00DE88EC /* TabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocol.swift; sourceTree = "<group>"; };
 		3F3A003F2458D27A0019E2ED /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				3F291E1A245B784B00D52923 /* AllGuidesTableViewController.swift */,
 				3F291E1C245B801A00D52923 /* LoginGuidesViewController.swift */,
 				3F291E1E245B860700D52923 /* CreateGuideViewController.swift */,
+				3F291E20245B98EE00D52923 /* UserGuidesTableViewController.swift */,
 				3F291E19245B77EB00D52923 /* Referenced View Controllers */,
 			);
 			name = "View Controllers";
@@ -454,6 +457,7 @@
 				9C4C3573245762500021AE1C /* Post+Convenience.swift in Sources */,
 				9C732D2724588EAA00168FC5 /* MockDataLoader.swift in Sources */,
 				9C4C3584245769720021AE1C /* PostModelController.swift in Sources */,
+				3F291E21245B98EE00D52923 /* UserGuidesTableViewController.swift in Sources */,
 				9C4C356F2457620B0021AE1C /* CoreDataStack.swift in Sources */,
 				9C4C3577245764620021AE1C /* User+Codable.swift in Sources */,
 				9C2317EC2457B8E5000A4A6B /* DataLoader.swift in Sources */,
