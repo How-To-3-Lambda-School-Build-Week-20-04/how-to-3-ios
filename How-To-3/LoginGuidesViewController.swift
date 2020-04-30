@@ -10,17 +10,17 @@ import UIKit
 
 class LoginGuidesViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var backendController = BackendController.shared
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var logInLabel: UIButton!
     @IBOutlet private weak var registerLabel: UIButton!
     
-    //MARK: - Custom Method
+    // MARK: - Custom Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class LoginGuidesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    //MARK: - Sign Up
+    // MARK: - Sign Up
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         emailTextField.isHidden = false
         logInLabel.setTitle("Cancel", for: .normal)
@@ -45,11 +45,11 @@ class LoginGuidesViewController: UIViewController {
             
             if let error = error {
                 //                Alert
-                fatalError("Error fetching: \(String(describing: error.localizedDescription))")
+                self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
                 return
             }
             if let response = response {
-                fatalError("User existing: \(String(describing: error?.localizedDescription))")
+                 self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
                 return
             }
             
@@ -68,7 +68,7 @@ class LoginGuidesViewController: UIViewController {
     }
     
     
-    //MARK: - Sign IN
+    // MARK: - Sign IN
     
     @IBAction func loginPressed(_ sender: UIButton) {
         
@@ -79,21 +79,22 @@ class LoginGuidesViewController: UIViewController {
         emailTextField.isHidden = true
         
         backendController.signIn(username: username, password: password) { signIn in
-            
+ 
             DispatchQueue.main.async {
-                let action: () -> Void
+                
+                  let action: () -> Void
+                
                 if signIn {
                     self.showAlertMessage(title: "Success", message: "Succesfully logged in", actiontitle: "Ok")
                     action = { self.dismiss(animated: true) }
                 } else {
-                    self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok")
-                }
-                
+                    action = { self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok") }
+                    
             }
-            
+                action()
         }
     }
-    
+    }
     
     
     func showAlertMessage(title: String, message: String, actiontitle: String) {
