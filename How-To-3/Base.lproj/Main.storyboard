@@ -394,7 +394,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XuY-pZ-nxD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserGuidesCell" id="XuY-pZ-nxD" customClass="UserGuidesTableViewCell" customModule="How_To_3" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XuY-pZ-nxD" id="4b1-Ca-74S">
@@ -467,6 +467,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="guidesTitleLabel" destination="iWK-ze-QjO" id="Iyn-hf-Om5"/>
+                                    <outlet property="likesLabel" destination="NIn-EA-0EM" id="9SQ-wq-1Nc"/>
+                                    <outlet property="loadingUsername" destination="JbS-LI-dz7" id="5qm-Zb-IbJ"/>
+                                    <outlet property="timeStamp" destination="ct7-Rc-jX9" id="HBg-4c-9bZ"/>
                                     <segue destination="dYD-c1-nN7" kind="show" identifier="UserPostShowSegue" id="T0o-2M-ZYF"/>
                                 </connections>
                             </tableViewCell>

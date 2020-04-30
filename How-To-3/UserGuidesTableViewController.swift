@@ -13,7 +13,7 @@ class UserGuidesTableViewController: UITableViewController {
     let backendController = BackendController.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        backendController.userPosts
+        tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,15 +33,14 @@ class UserGuidesTableViewController: UITableViewController {
         return backendController.userPosts.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserGuidesCell", for: indexPath) as? UserGuidesTableViewCell else { return UITableViewCell() }
+        cell.post = backendController.userPosts[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
