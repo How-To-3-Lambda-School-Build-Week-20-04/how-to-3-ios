@@ -10,17 +10,23 @@ import UIKit
 import CoreData
 class MyPostTableViewCell: UITableViewCell {
 
+    // MARK: Properties
     var backendController: BackendController?
     var post: Post?
+    
+    // MARK: - IBOutlets
+    @IBOutlet private weak var titleLabel: UILabel!
+       @IBOutlet private weak var authorNameLabel: UILabel!
+       @IBOutlet private weak var timeStamp: UILabel!
+    
+    // Mark: Custom Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var authorNameLabel: UILabel!
-    @IBOutlet private weak var timeStamp: UILabel!
+   
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

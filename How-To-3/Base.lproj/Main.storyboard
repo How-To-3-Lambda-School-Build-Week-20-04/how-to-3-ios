@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGuidesCell" id="a2l-Uk-Fh9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGuidesCell" id="a2l-Uk-Fh9" customClass="MainPostTableViewCell" customModule="How_To_3" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2l-Uk-Fh9" id="qLP-7o-1wU">
@@ -183,6 +183,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="authorNameLabel" destination="14u-vC-dyf" id="vuz-g3-dyA"/>
+                                    <outlet property="likesLabel" destination="QnA-kD-aIw" id="PvC-Ra-mre"/>
+                                    <outlet property="postTitleLabel" destination="ShM-DW-hve" id="MDH-eQ-Vmj"/>
+                                    <outlet property="timeStampLabel" destination="8MU-Pm-ipC" id="wpX-id-H6O"/>
                                     <segue destination="dYD-c1-nN7" kind="show" identifier="PostDetailShowSegue" trigger="accessoryAction" id="291-3i-keH"/>
                                 </connections>
                             </tableViewCell>
