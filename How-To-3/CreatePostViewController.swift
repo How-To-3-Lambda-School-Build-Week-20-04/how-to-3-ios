@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-class CreatePostViewController: UIViewController, PostPresenter {
+class CreatePostViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -42,7 +42,6 @@ class CreatePostViewController: UIViewController, PostPresenter {
     @IBAction func addPostButtonTapped(_ sender: UIButton) {
         guard let title = titleTextField.text,
             !title.isEmpty,
-            let backendController = backendController,
             let bodyText = postDescription.text, !bodyText.isEmpty else {
                 return
         }

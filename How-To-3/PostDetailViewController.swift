@@ -61,7 +61,7 @@ class PostDetailViewController: UIViewController {
             !postBody.isEmpty
             else { return }
         if changeTitleTextField.isUserInteractionEnabled && postDescription.isUserInteractionEnabled == isEditing {
-        backendController?.updatePost(at: post, title: title, post: postBody, completion: { error in
+            backendController.updatePost(at: post, title: title, post: postBody, completion: { error in
             if let error = error {
                 NSLog("Error in updating the post")
             } else {

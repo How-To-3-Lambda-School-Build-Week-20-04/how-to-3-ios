@@ -21,7 +21,7 @@ class MainPostTableViewCell: UITableViewCell {
             updateViews()
         }
     }
-    var backendController: BackendController?
+    var backendController = BackendController.shared
     var postRepresentation: PostRepresentation?
     
     

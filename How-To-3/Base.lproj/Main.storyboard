@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login Guides View Controller-->
         <scene sceneID="vy7-4N-J4u">
             <objects>
-                <viewController id="WHF-Vk-QcS" customClass="LoginViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WHF-Vk-QcS" customClass="LoginGuidesViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oc9-js-YRX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,6 +78,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="loginPressed:" destination="WHF-Vk-QcS" eventType="touchUpInside" id="7U2-nW-reo"/>
+                                                    <segue destination="Kie-Ia-mDL" kind="show" id="O0O-sk-zes"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -100,7 +101,6 @@
                         <outlet property="passwordTextField" destination="A3r-0G-yNU" id="xP8-zO-RfF"/>
                         <outlet property="registerLabel" destination="aHB-pn-GdD" id="aaG-2E-Pi7"/>
                         <outlet property="usernameTextField" destination="DUe-vf-Jms" id="8RY-4v-7BJ"/>
-                        <segue destination="Kie-Ia-mDL" kind="show" identifier="LoggedInShowSegue" id="N4n-Rl-RLE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNu-f3-W3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,13 +110,13 @@
         <!--Browse How-To's-->
         <scene sceneID="Quj-Yp-8Dc">
             <objects>
-                <tableViewController id="Kie-Ia-mDL" sceneMemberID="viewController">
+                <tableViewController id="Kie-Ia-mDL" customClass="AllGuidesTableViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bSM-Na-DSW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a2l-Uk-Fh9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGuidesCell" id="a2l-Uk-Fh9">
                                 <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2l-Uk-Fh9" id="qLP-7o-1wU">
@@ -549,7 +549,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T0o-2M-ZYF"/>
+        <segue reference="291-3i-keH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barmenu" width="24" height="24"/>
