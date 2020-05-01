@@ -100,6 +100,7 @@ class UserGuidesTableViewController: UITableViewController {
             if let detailVC = segue.destination as? GuidesDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.post = backendController.userPosts[indexPath.row]
+                detailVC.wasEdited = true 
             }
         }
     }
