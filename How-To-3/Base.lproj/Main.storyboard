@@ -311,9 +311,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bmt-Cp-fxG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Rqn-Uu-FKj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="TPA-tT-ztN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Rqn-Uu-FKj"/>
                     <connections>
                         <outlet property="guideLikes" destination="oip-QE-6Gg" id="eZc-hb-Cmd"/>
                         <outlet property="guideTextField" destination="uxe-CF-xxg" id="617-8J-KiH"/>
