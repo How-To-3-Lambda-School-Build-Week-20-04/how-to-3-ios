@@ -30,6 +30,9 @@ class AllGuidesTableViewController: UITableViewController {
 
     // MARK: - Custom Methods
   
+    @IBAction func unwindSegue(segue:UIStoryboardSegue) { }
+
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     

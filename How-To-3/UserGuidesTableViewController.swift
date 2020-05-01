@@ -35,7 +35,7 @@ class UserGuidesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserGuidesCell", for: indexPath) as? UserGuidesTableViewCell else { return UITableViewCell() }
+ guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserGuidesCell", for: indexPath) as? UserGuidesTableViewCell else { return UITableViewCell() }
         cell.post = backendController.userPosts[indexPath.row]
 
         return cell

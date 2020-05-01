@@ -27,9 +27,9 @@ class CreateGuideViewController: UIViewController {
        
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwinedMainSegue", sender: self)
     }
     
     @IBAction func createPostTapped(_ sender: UIButton) {
@@ -47,8 +47,9 @@ class CreateGuideViewController: UIViewController {
                  
                  DispatchQueue.main.async {
                      //Alert
-self.showAlertMessage(title: "Post Created!", message: "Go to the Home", actiontitle: "Ok")
-                     
+                    
+self.showAlertMessage(title: "Post Created!", message: "Congratulations!", actiontitle: "Ok")
+                    self.performSegue(withIdentifier: "mainTableSegue", sender: self)
                   
                  }
                  

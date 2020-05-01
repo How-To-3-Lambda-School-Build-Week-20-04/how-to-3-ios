@@ -535,6 +535,7 @@
                                 <connections>
                                     <action selector="createPostButton:" destination="3cH-7g-LRj" eventType="touchUpInside" id="r6I-o3-7G4"/>
                                     <action selector="createPostTapped:" destination="FRI-JC-Akd" eventType="touchUpInside" id="kdb-X8-Kix"/>
+                                    <segue destination="3cH-7g-LRj" kind="unwind" identifier="mainTableSegue" unwindAction="unwindSegueWithSegue:" id="N5k-uR-JIG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -577,7 +578,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T0o-2M-ZYF"/>
+        <segue reference="291-3i-keH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barmenu" width="24" height="24"/>
