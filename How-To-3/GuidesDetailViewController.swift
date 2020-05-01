@@ -26,61 +26,29 @@ class GuidesDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        guideTextField.isHidden = true
-        if wasEdited == true {
-            guidesTitleLabel.isHidden = true
-            guideTextField.isHidden = false
-            postBodyTextView.isEditable = true
-        }
-        
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        guard let userTitle = guideTextField.text,
+            !userTitle.isEmpty,
+            let postBody = postBodyTextView.text,
+        let post = post else { return }
         
-        if wasEdited {
-            guard let title = guideTextField.text,
-                !title.isEmpty,
-                let notes = postBodyTextView.text,
-                let post = post else {
-                    return
+        backendController.updatePost(at: post, title: userTitle, post: postBody) { error in
+            if let error = error {
+                    NSLog("Error updating: \(error)")
+                return
             }
-        
-            post.title = title
-            post.post = notes
-            backendController.updatePost(at: post, title: title, post: notes) { error in
-                if let error = error {
-                    NSLog("error in updates")
-                    return
-                }
-            }
-            do {
-                try CoreDataStack.shared.mainContext.save()
-            } catch {
-                NSLog("Error saving managed object context: \(error)")
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        
-        if editing { wasEdited = true }
-        
-        guard let title = guideTextField,
-            let body = postBodyTextView else { return }
-        title.isUserInteractionEnabled = editing
-        body.isUserInteractionEnabled = editing
-        navigationItem.hidesBackButton = editing
-    }
-    
     
     private func updateViews() {
         guard let post = post else { return }
         userNameLabel.text = String("User ID: \(post.userID)")
         guidesTitleLabel.text = post.title
-        guidesTitleLabel.isUserInteractionEnabled = isEditing
         guideTextField.text = post.title
         guideTextField.isUserInteractionEnabled = isEditing
         postBodyTextView.text = post.post
