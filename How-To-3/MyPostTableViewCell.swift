@@ -44,7 +44,7 @@ class MyPostTableViewCell: UITableViewCell {
         else { return }
     
         backendController.createPost(title: title, post: bodyPost) { error in
-            if error != nil  {
+            if error != nil {
                 NSLog("Could not load posts")
                 return
             }
