@@ -52,7 +52,6 @@ class GuidesDetailViewController: UIViewController {
         guideTextField.text = post.title
         guideTextField.isUserInteractionEnabled = isEditing
         postBodyTextView.text = post.post
-        guideTextField.isUserInteractionEnabled = isEditing
         guideLikes.text = String(post.likes)
         timeStampLabel.text = post.timestamp
     }
