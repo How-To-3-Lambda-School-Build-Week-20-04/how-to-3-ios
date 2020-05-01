@@ -13,19 +13,25 @@ class AllGuidesTableViewController: UITableViewController {
     // MARK: - Properties
 
     var backendController = BackendController.shared
-    
-    lazy var fetchedResultsController: NSFetchedResultsController<Post> = {
+    var objectPosts: [NSManagedObject] = []
+     lazy var fetchedResultsController: NSFetchedResultsController<Post>  = {
              let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
              let context = CoreDataStack.shared.mainContext
              context.reset()
              fetchRequest.sortDescriptors = [NSSortDescriptor(key: "likes", ascending: true)]
              let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
              frc.delegate = self
-             try? frc.performFetch()
-             return frc
+       
+        do {
+             try frc.performFetch()
+        } catch {
+                NSLog("Error in fetching the posts.")
+            }
+         return frc
          }()
     // MARK: - Outlets
 
+    @IBOutlet weak var searchBar: UISearchBar!
     // MARK: - Protocol Conforming
 
     // MARK: - Custom Methods
@@ -37,11 +43,14 @@ class AllGuidesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     
         tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ searchBar.delegate = self
+        searchBar(searchBar, textDidChange: "")
+        
         if backendController.isSignedIn {
                 backendController.syncPosts { error in
                     DispatchQueue.main.async {
@@ -76,7 +85,7 @@ class AllGuidesTableViewController: UITableViewController {
         return cell
     }
     
-
+   
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -93,7 +102,7 @@ class AllGuidesTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    }
     }
     */
 
@@ -173,4 +182,18 @@ extension AllGuidesTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
+extension AllGuidesTableViewController: UISearchBarDelegate, UISearchDisplayDelegate  {
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            var predicate: NSPredicate = NSPredicate()
+            predicate = NSPredicate(format: "title contains[c] '\(searchText)'")
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Contact")
+            fetchRequest.predicate = predicate
+        }
+        tableView.reloadData()
+    }
+
+     }
+    
 
