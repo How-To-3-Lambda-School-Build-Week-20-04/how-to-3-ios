@@ -29,7 +29,11 @@ class LoginGuidesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) { }
     // MARK: - Sign Up
+    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         emailTextField.isHidden = false
         logInLabel.setTitle("Cancel", for: .normal)
