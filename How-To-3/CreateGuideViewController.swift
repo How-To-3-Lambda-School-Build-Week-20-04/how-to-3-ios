@@ -27,9 +27,10 @@ class CreateGuideViewController: UIViewController {
         
        self.hideKeyboardWhenTappedAround()
 
-        // Do any additional setup after loading the view.
+    self.guideDescription.layer.borderWidth = 1.0
     }
         
+    
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "cancelSegue", sender: self)
     }
