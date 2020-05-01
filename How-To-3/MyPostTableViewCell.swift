@@ -19,8 +19,6 @@ class MyPostTableViewCell: UITableViewCell {
        @IBOutlet private weak var authorNameLabel: UILabel!
        @IBOutlet private weak var timeStamp: UILabel!
     
-    // Mark: Custom Methods
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
