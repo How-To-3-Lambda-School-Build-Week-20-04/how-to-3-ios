@@ -80,6 +80,7 @@ class GuidesDetailViewController: UIViewController {
         guard let post = post else { return }
         userNameLabel.text = String("User ID: \(post.userID)")
         guidesTitleLabel.text = post.title
+        guidesTitleLabel.isUserInteractionEnabled = isEditing
         guideTextField.text = post.title
         guideTextField.isUserInteractionEnabled = isEditing
         postBodyTextView.text = post.post
