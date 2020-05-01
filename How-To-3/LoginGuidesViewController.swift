@@ -25,7 +25,7 @@ class LoginGuidesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.isHidden = true
-        self.hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     
@@ -121,13 +121,13 @@ class LoginGuidesViewController: UIViewController {
     
 }
 extension LoginGuidesViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginGuidesViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
+//    func hideKeyboardWhenTappedAround() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginGuidesViewController.dismissKeyboard))
+//        view.addGestureRecognizer(tap)
+//
+//    }
+//
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
 }

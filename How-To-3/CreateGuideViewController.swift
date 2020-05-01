@@ -25,7 +25,7 @@ class CreateGuideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       self.hideKeyboardWhenTappedAround()
+//       self.hideKeyboardWhenTappedAround()
 
     self.guideDescription.layer.borderWidth = 1.0
     }
@@ -89,13 +89,13 @@ self.showAlertMessage(title: "Post Created!", message: "Congratulations!", actio
 
 }
 extension CreateGuideViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginGuidesViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
+//    func hideKeyboardWhenTappedAround() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginGuidesViewController.dismissKeyboard))
+//        view.addGestureRecognizer(tap)
+//
+//    }
+//
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
 }
