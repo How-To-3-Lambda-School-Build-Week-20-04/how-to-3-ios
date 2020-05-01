@@ -94,17 +94,38 @@ class AllGuidesTableViewController: UITableViewController {
     }
     */
 
-    /*
+//    The closure returns:
+//    1. Only an error if something went wrong
+//    2. Only a bool value if we communicated with the server successfully:
+//        A. It will return True if we deleted the chosen post
+//        B. False if the server wasn't able to delete the post
+//        C. BOTH! ONLY IF: We successfully deleted from the server, but were unable to delete from Core Data
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            let post = fetchedResultsController.object(at: indexPath)
+//            backendController.deletePost(post: post) { result, error in
+//                if let error = error {
+//                    self.showAlertMessage(title: "Something wen't wrong", message: "Couldn't delete the guide", actiontitle: "Ok")
+//                }
+//
+//
+//                DispatchQueue.main.async {
+//                        CoreDataStack.shared.mainContext.delete(post)
+//
+//                    do {
+//                        try CoreDataStack.shared.mainContext.save()
+//                    } catch {
+//                        CoreDataStack.shared.mainContext.reset()
+//                        NSLog("Error saving object: \(error)")
+//                    }
+//                }
+//            }
+//
+//        }
+//    }
 
     /*
     // Override to support rearranging the table view.
@@ -202,5 +223,14 @@ extension AllGuidesTableViewController: UISearchBarDelegate, UISearchDisplayDele
     }
 
      }
-    
+extension AllGuidesTableViewController {
+    func showAlertMessage(title: String, message: String, actiontitle: String) {
+        let endAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let endAction = UIAlertAction(title: actiontitle, style: .default) { (action: UIAlertAction ) in
+        }
+        
+        endAlert.addAction(endAction)
+        present(endAlert, animated: true, completion: nil)
+    }
+}
 
