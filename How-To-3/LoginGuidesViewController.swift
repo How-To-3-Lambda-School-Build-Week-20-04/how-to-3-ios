@@ -44,6 +44,17 @@ class LoginGuidesViewController: UIViewController {
             else { return }
         backendController.signUp(username: username, password: password, email: email) { signUpResult, response, error  in
             
+            if let error = error  {
+                //                Alert
+                self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
+                return
+                
+            }
+            if let response = response {
+                self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
+                return
+                
+            }
             
             DispatchQueue.main.async {
                 if signUpResult {
@@ -52,16 +63,6 @@ class LoginGuidesViewController: UIViewController {
                 return
             }
             
-            if error != nil {
-                //                Alert
-                self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
-                return
-                
-            }
-            if response != nil {
-                self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
-                return
-            }
             
             
         }
