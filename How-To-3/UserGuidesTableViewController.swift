@@ -16,33 +16,18 @@ class UserGuidesTableViewController: UITableViewController {
     weak var delegate: PostSelectionDelegate?
     let backendController = BackendController.shared
     
-    
-    
-    lazy var fetchedResultsController: NSFetchedResultsController<Post>  = {
-        let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
-        let context = CoreDataStack.shared.mainContext
-        context.reset()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "likes", ascending: true)]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = self
-        
-        do {
-            try frc.performFetch()
-        } catch {
-            NSLog("Error in fetching the posts.")
-        }
-        return frc
-    }()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        backendController.forceLoadUserPosts { loaded, _ in
+            if loaded {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -91,7 +76,11 @@ class UserGuidesTableViewController: UITableViewController {
                 if let result = result {
                     if result {
                         DispatchQueue.main.async {
-                            self.updateViews()
+                            if let indexOf = self.backendController.userPosts.firstIndex(of: post) {
+                                self.backendController.userPosts.remove(at: indexOf)
+                                 self.tableView.reloadData()
+                            }
+                           
                         }
 
                     }
@@ -118,17 +107,6 @@ class UserGuidesTableViewController: UITableViewController {
         }
     }
     
-    
-    private func updateViews() {
-        do {
-            CoreDataStack.shared.mainContext.reset()
-        try fetchedResultsController.performFetch()
-        } catch {
-           
-            NSLog("Error in fetching: \(error)")
-            
-        }
-    }
 }
 extension UserGuidesTableViewController {
     func showAlertMessage(title: String, message: String, actiontitle: String) {
