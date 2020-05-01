@@ -81,7 +81,7 @@ class UserGuidesTableViewController: UITableViewController {
             // Delete the row from the data source
             
             // TODO: expected to decode Int but found dictionary instead.
-            let post = fetchedResultsController.object(at: indexPath)
+            let post = backendController.userPosts[indexPath.row]
             
             backendController.deletePost(post: post) { result, error in
                 if let error = error {
@@ -93,7 +93,7 @@ class UserGuidesTableViewController: UITableViewController {
                         DispatchQueue.main.async {
                             self.updateViews()
                         }
-                        
+
                     }
                 }
             }
