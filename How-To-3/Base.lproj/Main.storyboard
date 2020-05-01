@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="npL-JH-o19">
-                                <rect key="frame" x="30" y="240" width="354" height="333.5"/>
+                                <rect key="frame" x="30" y="240" width="354" height="401.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How-To-3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sz-nP-MQx">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="56.5"/>
@@ -24,8 +24,18 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ubr-Wd-XcH">
+                                        <rect key="frame" x="0.0" y="93.5" width="354" height="32"/>
+                                        <segments>
+                                            <segment title="Login"/>
+                                            <segment title="Sign Up"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="loginTypeChanged:" destination="WHF-Vk-QcS" eventType="valueChanged" id="caN-N8-tbx"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="RDD-MC-5qs">
-                                        <rect key="frame" x="0.0" y="93.5" width="354" height="130"/>
+                                        <rect key="frame" x="0.0" y="161.5" width="354" height="130"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRd-lB-f6y">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
@@ -51,7 +61,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="247" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Ryr-5U-xSL">
-                                        <rect key="frame" x="0.0" y="260.5" width="354" height="73"/>
+                                        <rect key="frame" x="0.0" y="328.5" width="354" height="73"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHB-pn-GdD">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>

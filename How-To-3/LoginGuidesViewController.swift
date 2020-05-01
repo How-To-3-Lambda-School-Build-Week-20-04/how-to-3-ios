@@ -29,11 +29,27 @@ class LoginGuidesViewController: UIViewController {
     }
     
     @IBAction func unwindLoginSegue(segue: UIStoryboardSegue) { }
+    
+    //   MARK: - Segmented Control
+    
+    @IBAction func loginTypeChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            emailTextField.isHidden = true
+            
+        case 1:
+            emailTextField.isHidden = false
+            
+        default:
+            break
+        }
+        
+    }
+    
+    
     // MARK: - Sign Up
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        emailTextField.isHidden = false
-        logInLabel.setTitle("Cancel", for: .normal)
         
         
         guard let username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -43,20 +59,21 @@ class LoginGuidesViewController: UIViewController {
             let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             else { return }
         backendController.signUp(username: username, password: password, email: email) { signUpResult, response, error  in
-            
-            if let error = error  {
-                //                Alert
-                self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
-                return
-                
-            }
-            if let response = response {
-                self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
-                return
-                
-            }
-            
             DispatchQueue.main.async {
+                if let error = error  {
+                    //                Alert
+                    self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
+                    return
+                    
+                }
+                if let response = response {
+                    
+                    self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
+                    return
+                    
+                }
+                
+                
                 if signUpResult {
                     self.showAlertMessage(title: "Success", message: "You Signed Up Successfully", actiontitle: "Ok")
                 }
