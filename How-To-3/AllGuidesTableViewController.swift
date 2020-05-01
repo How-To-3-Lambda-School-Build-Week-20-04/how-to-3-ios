@@ -82,64 +82,6 @@ class AllGuidesTableViewController: UITableViewController {
         return cell
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    //    The closure returns:
-    //    1. Only an error if something went wrong
-    //    2. Only a bool value if we communicated with the server successfully:
-    //        A. It will return True if we deleted the chosen post
-    //        B. False if the server wasn't able to delete the post
-    //        C. BOTH! ONLY IF: We successfully deleted from the server, but were unable to delete from Core Data
-    
-    // Override to support editing the table view.
-    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            // Delete the row from the data source
-    //            let post = fetchedResultsController.object(at: indexPath)
-    //            backendController.deletePost(post: post) { result, error in
-    //                if let error = error {
-    //                    self.showAlertMessage(title: "Something wen't wrong", message: "Couldn't delete the guide", actiontitle: "Ok")
-    //                }
-    //
-    //
-    //                DispatchQueue.main.async {
-    //                        CoreDataStack.shared.mainContext.delete(post)
-    //
-    //                    do {
-    //                        try CoreDataStack.shared.mainContext.save()
-    //                    } catch {
-    //                        CoreDataStack.shared.mainContext.reset()
-    //                        NSLog("Error saving object: \(error)")
-    //                    }
-    //                }
-    //            }
-    //
-    //        }
-    //    }
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

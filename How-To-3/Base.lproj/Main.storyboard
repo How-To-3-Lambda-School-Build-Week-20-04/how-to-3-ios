@@ -189,6 +189,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="authorNameLabel" destination="14u-vC-dyf" id="vuz-g3-dyA"/>
+                                    <outlet property="authorNameTitle" destination="A9b-jl-Kp0" id="YGR-Cb-JVg"/>
                                     <outlet property="likesLabel" destination="QnA-kD-aIw" id="PvC-Ra-mre"/>
                                     <outlet property="postTitleLabel" destination="ShM-DW-hve" id="MDH-eQ-Vmj"/>
                                     <outlet property="timeStampLabel" destination="8MU-Pm-ipC" id="wpX-id-H6O"/>
@@ -387,6 +388,7 @@
                                         <state key="normal" title="Sign Out"/>
                                         <connections>
                                             <action selector="signOutPressed:" destination="ec3-g2-qvu" eventType="touchUpInside" id="jzv-ue-5jB"/>
+                                            <segue destination="hQp-Kh-Z9T" kind="unwind" identifier="LogoutUnwindSegue" unwindAction="unwindSegueWithSegue:" id="bjx-jL-On9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -404,6 +406,7 @@
                     <navigationItem key="navigationItem" title="Main Menu" largeTitleDisplayMode="never" id="Qc0-zJ-0t8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFE-b1-P3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hQp-Kh-Z9T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2607" y="90"/>
         </scene>
@@ -531,9 +534,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-96-WGK">
-                                <rect key="frame" x="40" y="369" width="334" height="300"/>
+                                <rect key="frame" x="40" y="369" width="334" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="fkC-ZB-eFz"/>
+                                    <constraint firstAttribute="height" constant="200" id="fkC-ZB-eFz"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -546,7 +549,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-ng-gWQ">
-                                <rect key="frame" x="147" y="674" width="120" height="41"/>
+                                <rect key="frame" x="147" y="574" width="120" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Create Post"/>
                                 <connections>

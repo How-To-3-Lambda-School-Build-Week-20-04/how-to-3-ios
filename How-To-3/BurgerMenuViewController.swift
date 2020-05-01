@@ -19,7 +19,7 @@ class BurgerMenuViewController: UIViewController {
     }
     
     @IBAction func signOutPressed(_ sender: UIButton) {
-        backandController.signOut()
+        self.performSegue(withIdentifier: "LogoutUnwindSegue", sender: self)
             }
     
     /*
