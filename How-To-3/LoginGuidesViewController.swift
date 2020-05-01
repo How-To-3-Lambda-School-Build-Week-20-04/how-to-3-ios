@@ -29,9 +29,7 @@ class LoginGuidesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    @IBAction func unwindSegue(segue: UIStoryboardSegue) { }
+    @IBAction func unwindLoginSegue(segue: UIStoryboardSegue) { }
     // MARK: - Sign Up
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
