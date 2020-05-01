@@ -11,7 +11,7 @@ import CoreData
 class AllGuidesTableViewController: UITableViewController {
 
     // MARK: - Properties
-
+    var guidesDetailController: GuidesDetailViewController?
     var backendController = BackendController.shared
     var objectPosts: [NSManagedObject] = []
      lazy var fetchedResultsController: NSFetchedResultsController<Post>  = {
@@ -121,15 +121,22 @@ class AllGuidesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "PostDetailViewSegue" {
+            if let detailVC = segue.destination as? GuidesDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.post = fetchedResultsController.object(at: indexPath)
+                }
+            }
+        }
+
 
 }
 

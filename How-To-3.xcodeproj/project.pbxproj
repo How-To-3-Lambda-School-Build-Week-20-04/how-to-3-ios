@@ -201,8 +201,8 @@
 				3F291E1C245B801A00D52923 /* LoginGuidesViewController.swift */,
 				3F291E1E245B860700D52923 /* CreateGuideViewController.swift */,
 				3F291E20245B98EE00D52923 /* UserGuidesTableViewController.swift */,
-				3F291E19245B77EB00D52923 /* Referenced View Controllers */,
 				3F291E26245BC00000D52923 /* GuidesDetailViewController.swift */,
+				3F291E19245B77EB00D52923 /* Referenced View Controllers */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

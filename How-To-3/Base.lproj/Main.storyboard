@@ -216,10 +216,10 @@
             </objects>
             <point key="canvasLocation" x="1811.594202898551" y="89.732142857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Guides Detail View Controller-->
         <scene sceneID="Nq5-xC-lAk">
             <objects>
-                <viewController id="dYD-c1-nN7" sceneMemberID="viewController">
+                <viewController id="dYD-c1-nN7" customClass="GuidesDetailViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ap-aV-Pru">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,6 +314,14 @@
                     <navigationItem key="navigationItem" id="Rqn-Uu-FKj">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="TPA-tT-ztN"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="guideLikes" destination="oip-QE-6Gg" id="eZc-hb-Cmd"/>
+                        <outlet property="guideTextField" destination="uxe-CF-xxg" id="617-8J-KiH"/>
+                        <outlet property="guidesTitleLabel" destination="IfO-7d-94c" id="qIt-i2-WxK"/>
+                        <outlet property="postBodyTextView" destination="l5J-qK-EK1" id="Hyk-0l-c84"/>
+                        <outlet property="timeStampLabel" destination="DqX-5f-ukd" id="LyW-xe-Abf"/>
+                        <outlet property="userNameLabel" destination="OXU-Lh-dkq" id="pRY-Lg-6I1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1Y-zZ-4SP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -587,7 +595,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N6g-CY-Qkc"/>
+        <segue reference="T0o-2M-ZYF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barmenu" width="24" height="24"/>

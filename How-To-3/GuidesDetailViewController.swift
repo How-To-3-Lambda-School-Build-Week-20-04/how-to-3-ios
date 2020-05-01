@@ -9,14 +9,33 @@
 import UIKit
 
 class GuidesDetailViewController: UIViewController {
-
+    
+    var backendController = BackendController.shared
+    var post: Post?
+    
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var guidesTitleLabel: UILabel!
+    @IBOutlet private weak var postBodyTextView: UITextView!
+    @IBOutlet private weak var guideLikes: UILabel!
+    @IBOutlet private weak var timeStampLabel: UILabel!
+    @IBOutlet private weak var guideTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+updateViews()
+        guideTextField.isHidden = true
         // Do any additional setup after loading the view.
     }
     
 
+    private func updateViews() {
+        guard let post = post else { return }
+        userNameLabel.text = String("User ID: \(post.userID)")
+        guidesTitleLabel.text = post.title
+        postBodyTextView.text = post.post
+        guideLikes.text = String(post.likes)
+        timeStampLabel.text = post.timestamp
+    }
     /*
     // MARK: - Navigation
 
