@@ -14,29 +14,15 @@ class AllGuidesTableViewController: UITableViewController {
     var guidesDetailController: GuidesDetailViewController?
     var backendController = BackendController.shared
     var objectPosts: [NSManagedObject] = []
-     lazy var fetchedResultsController: NSFetchedResultsController<Post>  = {
-             let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
-             let context = CoreDataStack.shared.mainContext
-             context.reset()
-             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "likes", ascending: true)]
-             let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-             frc.delegate = self
-       
-        do {
-             try frc.performFetch()
-        } catch {
-                NSLog("Error in fetching the posts.")
-            }
-         return frc
-         }()
+     var fetchedResultsController: NSFetchedResultsController<Post>!
     // MARK: - Outlets
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar!
     // MARK: - Protocol Conforming
 
     // MARK: - Custom Methods
   
-    @IBAction func unwindSegue(segue:UIStoryboardSegue) { }
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) { }
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +36,7 @@ class AllGuidesTableViewController: UITableViewController {
         super.viewDidLoad()
  searchBar.delegate = self
         searchBar(searchBar, textDidChange: "")
-        
+        setUpFetchResultController()
         if backendController.isSignedIn {
                 backendController.syncPosts { error in
                     DispatchQueue.main.async {
@@ -65,6 +51,23 @@ class AllGuidesTableViewController: UITableViewController {
             }
     }
 
+    private func setUpFetchResultController(with predicate: NSPredicate = NSPredicate(value: true)) {
+        self.fetchedResultsController = nil
+        let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
+        fetchRequest.predicate = predicate
+                   let context = CoreDataStack.shared.mainContext
+                   context.reset()
+                   fetchRequest.sortDescriptors = [NSSortDescriptor(key: "likes", ascending: true)]
+                   let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                   frc.delegate = self
+             
+              do {
+                   try frc.performFetch()
+              } catch {
+                      NSLog("Error in fetching the posts.")
+                  }
+        self.fetchedResultsController = frc
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -215,10 +218,10 @@ extension AllGuidesTableViewController: UISearchBarDelegate, UISearchDisplayDele
         if !searchText.isEmpty {
             var predicate: NSPredicate = NSPredicate()
             predicate = NSPredicate(format: "title contains[c] '\(searchText)'")
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Contact")
-            fetchRequest.predicate = predicate
-        }
+            setUpFetchResultController(with: predicate)
+        } else {
+            setUpFetchResultController()
+    }
         tableView.reloadData()
     }
 
