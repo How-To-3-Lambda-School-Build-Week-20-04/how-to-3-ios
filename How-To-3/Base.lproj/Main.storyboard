@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login Guides View Controller-->
         <scene sceneID="vy7-4N-J4u">
             <objects>
-                <viewController id="WHF-Vk-QcS" customClass="LoginViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WHF-Vk-QcS" customClass="LoginGuidesViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oc9-js-YRX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
                         <outlet property="passwordTextField" destination="A3r-0G-yNU" id="xP8-zO-RfF"/>
                         <outlet property="registerLabel" destination="aHB-pn-GdD" id="aaG-2E-Pi7"/>
                         <outlet property="usernameTextField" destination="DUe-vf-Jms" id="8RY-4v-7BJ"/>
-                        <segue destination="Kie-Ia-mDL" kind="show" identifier="LoggedInShowSegue" id="N4n-Rl-RLE"/>
+                        <segue destination="Kie-Ia-mDL" kind="show" identifier="LoggedInShowSegue" id="Kco-pD-t4k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNu-f3-W3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,14 +110,19 @@
         <!--Browse How-To's-->
         <scene sceneID="Quj-Yp-8Dc">
             <objects>
-                <tableViewController id="Kie-Ia-mDL" sceneMemberID="viewController">
+                <tableViewController id="Kie-Ia-mDL" customClass="AllGuidesTableViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bSM-Na-DSW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="emV-wX-mlx">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a2l-Uk-Fh9">
-                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGuidesCell" id="a2l-Uk-Fh9" customClass="MainPostTableViewCell" customModule="How_To_3" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2l-Uk-Fh9" id="qLP-7o-1wU">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -183,7 +188,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dYD-c1-nN7" kind="show" identifier="PostDetailShowSegue" trigger="accessoryAction" id="291-3i-keH"/>
+                                    <outlet property="authorNameLabel" destination="14u-vC-dyf" id="vuz-g3-dyA"/>
+                                    <outlet property="likesLabel" destination="QnA-kD-aIw" id="PvC-Ra-mre"/>
+                                    <outlet property="postTitleLabel" destination="ShM-DW-hve" id="MDH-eQ-Vmj"/>
+                                    <outlet property="timeStampLabel" destination="8MU-Pm-ipC" id="wpX-id-H6O"/>
+                                    <segue destination="dYD-c1-nN7" kind="show" identifier="PostDetailViewSegue" id="N6g-CY-Qkc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -199,15 +208,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="emV-wX-mlx" id="HUg-Ld-eZm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTk-G0-Thb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1811.594202898551" y="89.732142857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Guides Detail View Controller-->
         <scene sceneID="Nq5-xC-lAk">
             <objects>
-                <viewController id="dYD-c1-nN7" sceneMemberID="viewController">
+                <viewController id="dYD-c1-nN7" customClass="GuidesDetailViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ap-aV-Pru">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,9 +311,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bmt-Cp-fxG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Rqn-Uu-FKj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="TPA-tT-ztN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Rqn-Uu-FKj"/>
+                    <connections>
+                        <outlet property="guideLikes" destination="oip-QE-6Gg" id="eZc-hb-Cmd"/>
+                        <outlet property="guideTextField" destination="uxe-CF-xxg" id="617-8J-KiH"/>
+                        <outlet property="guidesTitleLabel" destination="IfO-7d-94c" id="qIt-i2-WxK"/>
+                        <outlet property="postBodyTextView" destination="l5J-qK-EK1" id="Hyk-0l-c84"/>
+                        <outlet property="timeStampLabel" destination="DqX-5f-ukd" id="LyW-xe-Abf"/>
+                        <outlet property="userNameLabel" destination="OXU-Lh-dkq" id="pRY-Lg-6I1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1Y-zZ-4SP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -384,13 +402,13 @@
         <!--My Guides-->
         <scene sceneID="SFl-4A-tB8">
             <objects>
-                <tableViewController id="aX2-Pl-yZO" sceneMemberID="viewController">
+                <tableViewController id="aX2-Pl-yZO" customClass="UserGuidesTableViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y1F-Ub-A0J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XuY-pZ-nxD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserGuidesCell" id="XuY-pZ-nxD" customClass="UserGuidesTableViewCell" customModule="How_To_3" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XuY-pZ-nxD" id="4b1-Ca-74S">
@@ -463,6 +481,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="guidesTitleLabel" destination="iWK-ze-QjO" id="Iyn-hf-Om5"/>
+                                    <outlet property="likesLabel" destination="NIn-EA-0EM" id="9SQ-wq-1Nc"/>
+                                    <outlet property="loadingUsername" destination="JbS-LI-dz7" id="5qm-Zb-IbJ"/>
+                                    <outlet property="timeStamp" destination="ct7-Rc-jX9" id="HBg-4c-9bZ"/>
                                     <segue destination="dYD-c1-nN7" kind="show" identifier="UserPostShowSegue" id="T0o-2M-ZYF"/>
                                 </connections>
                             </tableViewCell>
@@ -481,15 +503,18 @@
         <!--Make a Guide-->
         <scene sceneID="Gug-q5-R3k">
             <objects>
-                <viewController id="FRI-JC-Akd" sceneMemberID="viewController">
+                <viewController id="FRI-JC-Akd" customClass="CreateGuideViewController" customModule="How_To_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2c6-sA-VLF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Learn how to make fried egg on the sidewalk" borderStyle="roundedRect" placeholder="How-To Title" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="SmG-Nq-Sof">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How-To Title" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="SmG-Nq-Sof">
                                 <rect key="frame" x="40" y="240" width="334" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="guideTitleLabel:" destination="3cH-7g-LRj" eventType="editingDidEnd" id="NuG-BC-4mI"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title your guide:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjF-uE-rIJ">
                                 <rect key="frame" x="40" y="191" width="181" height="29"/>
@@ -497,7 +522,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-96-WGK">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AUF-96-WGK">
                                 <rect key="frame" x="40" y="369" width="334" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -516,8 +541,16 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-ng-gWQ">
                                 <rect key="frame" x="147" y="636" width="120" height="41"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Create Post"/>
+                                <state key="normal" title="Create Post">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="createPostButton:" destination="3cH-7g-LRj" eventType="touchUpInside" id="r6I-o3-7G4"/>
+                                    <action selector="createPostTapped:" destination="FRI-JC-Akd" eventType="touchUpInside" id="kdb-X8-Kix"/>
+                                    <segue destination="3cH-7g-LRj" kind="unwind" identifier="mainTableSegue" unwindAction="unwindSegueWithSegue:" id="N5k-uR-JIG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -540,10 +573,21 @@
                         <viewLayoutGuide key="safeArea" id="Zc7-K0-uHk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Make a Guide" largeTitleDisplayMode="always" id="eTT-lz-n8m">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nOF-zf-ejT"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nOF-zf-ejT">
+                            <connections>
+                                <action selector="cancelTapped:" destination="FRI-JC-Akd" id="wZh-Os-7Jn"/>
+                                <segue destination="3cH-7g-LRj" kind="unwind" identifier="cancelSegue" unwindAction="unwindSegueWithSegue:" id="Y2B-D7-eW9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="createPostButton" destination="TcM-ng-gWQ" id="tVj-s3-9TF"/>
+                        <outlet property="guideDescription" destination="AUF-96-WGK" id="T6T-WL-3Nk"/>
+                        <outlet property="guideTitleTextField" destination="SmG-Nq-Sof" id="ot8-dE-JX4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8i-qI-Av3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3cH-7g-LRj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3629" y="90"/>
         </scene>

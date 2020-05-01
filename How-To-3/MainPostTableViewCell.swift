@@ -9,6 +9,15 @@
 import UIKit
 import CoreData
 class MainPostTableViewCell: UITableViewCell {
+    
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
+    var backendController = BackendController.shared
+    var postRepresentation: PostRepresentation?
+
    
     @IBOutlet private weak var postTitleLabel: UILabel!
     @IBOutlet private weak var likesLabel: UILabel!
@@ -16,22 +25,13 @@ class MainPostTableViewCell: UITableViewCell {
     @IBOutlet private weak var timeStampLabel: UILabel!
     
   
-    var post: Post? {
-        didSet {
-            updateViews()
-        }
-    }
-    var backendController: BackendController?
-    var postRepresentation: PostRepresentation?
-    
-    
     private func updateViews() {
         guard let post = post else { return }
         postTitleLabel.text = post.title
         authorNameLabel.text = String(post.userID)
         timeStampLabel.text = post.timestamp
+        likesLabel.text = String(post.likes)
 
-        
     }
 
 }
