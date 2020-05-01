@@ -26,6 +26,7 @@ class GuidesDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        editUpdate()
     }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
@@ -43,6 +44,7 @@ class GuidesDetailViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         }
+        
     }
     
     private func updateViews() {
@@ -50,10 +52,20 @@ class GuidesDetailViewController: UIViewController {
         userNameLabel.text = String("User ID: \(post.userID)")
         guidesTitleLabel.text = post.title
         guideTextField.text = post.title
-        guideTextField.isUserInteractionEnabled = isEditing
         postBodyTextView.text = post.post
         guideLikes.text = String(post.likes)
         timeStampLabel.text = post.timestamp
+    }
+    
+    private func editUpdate() {
+        if wasEdited == true {
+            guidesTitleLabel.isHidden = true
+            postBodyTextView.isEditable = true
+        } else {
+            guidesTitleLabel.isHidden = false
+            guideTextField.isHidden = true 
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
     
     
