@@ -25,8 +25,7 @@ class LoginGuidesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.isHidden = true
-        self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
+     
     }
     
     @IBAction func unwindLoginSegue(segue: UIStoryboardSegue) { }
@@ -84,8 +83,7 @@ class LoginGuidesViewController: UIViewController {
         backendController.signIn(username: username, password: password) { signIn in
  
             DispatchQueue.main.async {
-                
-                  let action: () -> Void
+                let action: () -> Void
                 
                 if signIn {
                       self.performSegue(withIdentifier: "LoggedInShowSegue", sender: self)
