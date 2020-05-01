@@ -33,11 +33,11 @@ class GuidesDetailViewController: UIViewController {
         guard let userTitle = guideTextField.text,
             !userTitle.isEmpty,
             let postBody = postBodyTextView.text,
-        let post = post else { return }
+            let post = post else { return }
         
         backendController.updatePost(at: post, title: userTitle, post: postBody) { error in
             if let error = error {
-                    NSLog("Error updating: \(error)")
+                NSLog("Error updating: \(error)")
                 return
             }
             DispatchQueue.main.async {
@@ -63,7 +63,7 @@ class GuidesDetailViewController: UIViewController {
             postBodyTextView.isEditable = true
         } else {
             guidesTitleLabel.isHidden = false
-            guideTextField.isHidden = true 
+            guideTextField.isHidden = true
             self.navigationItem.rightBarButtonItem = nil
         }
     }

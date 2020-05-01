@@ -93,7 +93,7 @@ class AllGuidesTableViewController: UITableViewController {
             if let detailVC = segue.destination as? GuidesDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.post = fetchedResultsController.object(at: indexPath)
-                detailVC.wasEdited = false 
+        detailVC.wasEdited = false 
             }
         }
     }
@@ -173,4 +173,3 @@ extension AllGuidesTableViewController {
         present(endAlert, animated: true, completion: nil)
     }
 }
-

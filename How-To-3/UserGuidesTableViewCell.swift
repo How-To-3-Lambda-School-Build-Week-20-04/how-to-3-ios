@@ -18,10 +18,10 @@ class UserGuidesTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var guidesTitleLabel: UILabel!
-    @IBOutlet weak var likesLabel: UILabel!
-    @IBOutlet weak var timeStamp: UILabel!
-    @IBOutlet weak var loadingUsername: UILabel!
+    @IBOutlet private weak var guidesTitleLabel: UILabel!
+    @IBOutlet private weak var likesLabel: UILabel!
+    @IBOutlet private weak var timeStamp: UILabel!
+    @IBOutlet private weak var loadingUsername: UILabel!
     
  private func updateViews() {
      guard let post = post else { return }

@@ -25,8 +25,6 @@ class LoginGuidesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.isHidden = true
-//        self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func unwindLoginSegue(segue: UIStoryboardSegue) { }
@@ -45,20 +43,22 @@ class LoginGuidesViewController: UIViewController {
             else { return }
         backendController.signUp(username: username, password: password, email: email) { signUpResult, response, error  in
             
-            if signUpResult {
-                DispatchQueue.main.async {
+            
+            DispatchQueue.main.async {
+                if signUpResult {
                     self.showAlertMessage(title: "Success", message: "You Signed Up Successfully", actiontitle: "Ok")
                 }
                 return
             }
-
+            
             if let error = error {
                 //                Alert
                 self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
                 return
+                
             }
             if let response = response {
-                 self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
+                self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
                 return
             }
             
@@ -82,21 +82,19 @@ class LoginGuidesViewController: UIViewController {
         emailTextField.isHidden = true
         
         backendController.signIn(username: username, password: password) { signIn in
- 
+            
             DispatchQueue.main.async {
                 
-                  let action: () -> Void
-                
                 if signIn {
-                      self.performSegue(withIdentifier: "LoggedInShowSegue", sender: self)
+                    self.performSegue(withIdentifier: "LoggedInShowSegue", sender: self)
                     self.showAlertMessage(title: "Success", message: "Succesfully logged in", actiontitle: "Ok")
                 } else {
-                    action = { self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok") }
+                    self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok")
                     
+                }
+                //                action()
             }
-//                action()
         }
-    }
     }
     
     
@@ -121,13 +119,13 @@ class LoginGuidesViewController: UIViewController {
     
 }
 extension LoginGuidesViewController {
-//    func hideKeyboardWhenTappedAround() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginGuidesViewController.dismissKeyboard))
-//        view.addGestureRecognizer(tap)
-//
-//    }
-//
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginGuidesViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

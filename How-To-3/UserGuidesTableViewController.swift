@@ -8,12 +8,8 @@
 
 import UIKit
 import CoreData
-protocol PostSelectionDelegate: class {
-    func postWasSelected(post: Post)
-}
 class UserGuidesTableViewController: UITableViewController {
     
-    weak var delegate: PostSelectionDelegate?
     let backendController = BackendController.shared
     
     override func viewDidLoad() {
@@ -45,12 +41,6 @@ class UserGuidesTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = backendController.userPosts[indexPath.row]
-        delegate?.postWasSelected(post: post)
-    }
-    
-    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -78,11 +68,11 @@ class UserGuidesTableViewController: UITableViewController {
                         DispatchQueue.main.async {
                             if let indexOf = self.backendController.userPosts.firstIndex(of: post) {
                                 self.backendController.userPosts.remove(at: indexOf)
-                                 self.tableView.reloadData()
+                                self.tableView.reloadData()
                             }
-                           
+                            
                         }
-
+                        
                     }
                 }
             }
@@ -100,7 +90,7 @@ class UserGuidesTableViewController: UITableViewController {
             if let detailVC = segue.destination as? GuidesDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.post = backendController.userPosts[indexPath.row]
-                detailVC.wasEdited = true 
+    detailVC.wasEdited = true 
             }
         }
     }
