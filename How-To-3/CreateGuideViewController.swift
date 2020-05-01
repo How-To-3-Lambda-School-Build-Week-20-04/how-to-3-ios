@@ -29,7 +29,7 @@ class CreateGuideViewController: UIViewController {
     }
         
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "unwinedMainSegue", sender: self)
+        self.performSegue(withIdentifier: "cancelSegue", sender: self)
     }
     
     @IBAction func createPostTapped(_ sender: UIButton) {

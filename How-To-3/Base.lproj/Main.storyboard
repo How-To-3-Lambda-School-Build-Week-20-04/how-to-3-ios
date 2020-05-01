@@ -187,7 +187,7 @@
                                     <outlet property="likesLabel" destination="QnA-kD-aIw" id="PvC-Ra-mre"/>
                                     <outlet property="postTitleLabel" destination="ShM-DW-hve" id="MDH-eQ-Vmj"/>
                                     <outlet property="timeStampLabel" destination="8MU-Pm-ipC" id="wpX-id-H6O"/>
-                                    <segue destination="dYD-c1-nN7" kind="show" identifier="PostDetailShowSegue" trigger="accessoryAction" id="291-3i-keH"/>
+                                    <segue destination="dYD-c1-nN7" kind="show" identifier="PostDetailViewSegue" id="N6g-CY-Qkc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -562,6 +562,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nOF-zf-ejT">
                             <connections>
                                 <action selector="cancelTapped:" destination="FRI-JC-Akd" id="wZh-Os-7Jn"/>
+                                <segue destination="3cH-7g-LRj" kind="unwind" identifier="cancelSegue" unwindAction="unwindSegueWithSegue:" id="Y2B-D7-eW9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -578,7 +579,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="291-3i-keH"/>
+        <segue reference="N6g-CY-Qkc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barmenu" width="24" height="24"/>
