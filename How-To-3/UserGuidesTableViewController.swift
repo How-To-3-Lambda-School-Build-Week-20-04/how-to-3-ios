@@ -47,11 +47,6 @@ class UserGuidesTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return backendController.userPosts.count
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return backendController.userPosts.count
@@ -194,4 +189,3 @@ extension UserGuidesTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
