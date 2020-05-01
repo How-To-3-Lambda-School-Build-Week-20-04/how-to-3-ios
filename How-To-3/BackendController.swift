@@ -684,6 +684,7 @@ class BackendController {
                 let response = try self.decoder.decode(Int.self, from: data)
                 success = response == 1 ? true : false
                 if success { self.bgContext.delete(post) }
+//                if success { CoreDataStack.shared.mainContext.delete(post) }
                 completion(success, nil)
             } catch {
                 NSLog("Error decoding response from server after deleting: \(error)")
