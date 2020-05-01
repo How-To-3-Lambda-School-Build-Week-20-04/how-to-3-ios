@@ -449,7 +449,11 @@ class BackendController {
                         } else {
                             //                             If the post isn't in core data, add it.
                             if let newPost = Post(representation: post, context: self.bgContext) {
-                                self.userPosts.append(newPost)
+                                if self.userPosts.first(where: { $0 == newPost }) != nil {
+                                    NSLog("Post already added to user's posts.")
+                                } else {
+                                    self.userPosts.append(newPost)
+                                }
                             }
                             //                            try self.savePost(by: id, from: post)
                         }
