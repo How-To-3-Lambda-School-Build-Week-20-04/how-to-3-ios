@@ -388,7 +388,7 @@
                                         <state key="normal" title="Sign Out"/>
                                         <connections>
                                             <action selector="signOutPressed:" destination="ec3-g2-qvu" eventType="touchUpInside" id="jzv-ue-5jB"/>
-                                            <segue destination="hQp-Kh-Z9T" kind="unwind" identifier="LogoutUnwindSegue" unwindAction="unwindSegueWithSegue:" id="bjx-jL-On9"/>
+                                            <segue destination="hQp-Kh-Z9T" kind="unwind" identifier="LogoutUnwindSegue" unwindAction="unwindLoginSegueWithSegue:" id="bjx-jL-On9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -404,6 +404,9 @@
                         <viewLayoutGuide key="safeArea" id="2DN-Dy-d2H"/>
                     </view>
                     <navigationItem key="navigationItem" title="Main Menu" largeTitleDisplayMode="never" id="Qc0-zJ-0t8"/>
+                    <connections>
+                        <segue destination="hQp-Kh-Z9T" kind="unwind" unwindAction="unwindLoginSegueWithSegue:" id="nBm-yx-DUt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFE-b1-P3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hQp-Kh-Z9T" userLabel="Exit" sceneMemberID="exit"/>
