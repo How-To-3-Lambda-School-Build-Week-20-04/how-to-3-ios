@@ -23,7 +23,7 @@ class MainPostTableViewCell: UITableViewCell {
     @IBOutlet private weak var likesLabel: UILabel!
     @IBOutlet private weak var authorNameLabel: UILabel!
     @IBOutlet private weak var timeStampLabel: UILabel!
-    @IBOutlet weak var authorNameTitle: UILabel!
+    @IBOutlet private weak var authorNameTitle: UILabel!
     
   
     private func updateViews() {

@@ -55,6 +55,7 @@ class LoginGuidesViewController: UIViewController {
                 //                Alert
                 self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
                 return
+                
             }
             if let response = response {
                  self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
@@ -83,13 +84,12 @@ class LoginGuidesViewController: UIViewController {
         backendController.signIn(username: username, password: password) { signIn in
  
             DispatchQueue.main.async {
-                let action: () -> Void
                 
                 if signIn {
                       self.performSegue(withIdentifier: "LoggedInShowSegue", sender: self)
                     self.showAlertMessage(title: "Success", message: "Succesfully logged in", actiontitle: "Ok")
                 } else {
-                    action = { self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok") }
+                   self.showAlertMessage(title: "Retry", message: "Problem in signing in", actiontitle: "Ok")
                     
             }
 //                action()
