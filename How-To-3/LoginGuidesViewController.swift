@@ -52,13 +52,13 @@ class LoginGuidesViewController: UIViewController {
                 return
             }
             
-            if let error = error {
+            if error != nil {
                 //                Alert
                 self.showAlertMessage(title: "Try again!", message: "Error signing up!", actiontitle: "Ok")
                 return
                 
             }
-            if let response = response {
+            if response != nil {
                 self.showAlertMessage(title: "Try with different user", message: "Existing User.", actiontitle: "Ok")
                 return
             }
